@@ -1,4 +1,4 @@
-package tests.sampleTests;
+package waits;
 
 import com.google.common.base.Function;
 import org.openqa.selenium.By;

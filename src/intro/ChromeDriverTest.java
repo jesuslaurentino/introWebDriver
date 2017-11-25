@@ -1,4 +1,4 @@
-package tests.sampleTests;
+package intro;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,8 +17,9 @@ public class ChromeDriverTest {
     public static void main(String[] args){
         // Configuration lines: Set system Property for context execution.
         Path currentRelativePath = Paths.get("");
+        //Only works if \DriverEXE\chromedriver.exe exists at current path
         String pathToDriver = currentRelativePath.toAbsolutePath().toString() + File.separator + "DriverEXE" + File.separator;
-        System.setProperty("webdriver.chrome.driver", pathToDriver + "chromedriver");
+        System.setProperty("webdriver.chrome.driver", pathToDriver + "chromedriver.exe");
         // Driver init
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.google.com.mx");
