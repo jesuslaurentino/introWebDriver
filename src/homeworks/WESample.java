@@ -38,19 +38,26 @@ public class WESample {
 		WebElement loginLink = driver.findElement(By.xpath(loginId));
 		loginLink.click();
 		
-		int flag=0;
+		String flag = "null";
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		do {
 			jse.executeScript("window.scrollBy(0,250)", "");
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			try{ 
-				String xpathSearch = "//*[contains(text(),'Lopez Obrador')]";
-				flag = Integer.parseInt(driver.findElement(By.xpath(xpathSearch)).getText());			}
+				String xpathSearch = "//*[@id='timeline']//*[contains(text(),'AMLO')]";
+				WebElement xpathSearchStr = driver.findElement(By.xpath(xpathSearch));
+				for (int iCnt = 0; iCnt < 3; iCnt++) {
+				      //Execute javascript
+				         jse.executeScript("arguments[0].style.border='4px groove red'", xpathSearchStr);
+				         jse.executeScript("arguments[0].style.border=''", xpathSearchStr);
+				   }
+				flag = xpathSearchStr.getText();			
+				}
 			catch ( org.openqa.selenium.NoSuchElementException e) {
 				
 			}
 			
-		}while(flag==0);
+		}while(flag.equals("null"));
 		
 		System.out.println("End Of TestScript Run");
 	}

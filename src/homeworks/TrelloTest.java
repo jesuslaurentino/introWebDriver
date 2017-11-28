@@ -92,12 +92,14 @@ public class TrelloTest {
 		WebDriverWait waitMainpageLoad = new WebDriverWait(driver,30);
 		waitMainpageLoad.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//body")));
 		//"Open Member Menu"
-		String memberMenuXPath = "//*[@id=\"header\"]/div[4]/a[4]/span/span[1]"; 
-		WebElement openMemberMenu= driver.findElement(By.xpath(memberMenuXPath));
+		String memberMenuXPath = "//*[@id='header']//*[@class='member-initials']";
+		WebDriverWait waitBarLoad = new WebDriverWait(driver,3);
+		WebElement openMemberMenu= waitBarLoad.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(memberMenuXPath)));
 		openMemberMenu.click();
 		//
-		String logoutLinkValue = "Log Out";
-		WebElement logoutListItem = driver.findElement(By.linkText(logoutLinkValue));
+		String logoutXPath = "//div[@class='pop-over is-shown']//a[@class='js-logout']";
+		WebDriverWait waitOPtionLoad = new WebDriverWait(driver,3);
+		WebElement logoutListItem= waitOPtionLoad.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(logoutXPath)));
 		logoutListItem.click();
 		
 		System.out.println("End Of TestScript Run");		
