@@ -44,13 +44,9 @@ public class WESample {
 			jse.executeScript("window.scrollBy(0,250)", "");
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			try{ 
-				String xpathSearch = "//*[@id='timeline']//*[contains(text(),'AMLO')]";
+				String xpathSearch = "//*[@id='timeline']//*[contains(text(),'Meade')]";
 				WebElement xpathSearchStr = driver.findElement(By.xpath(xpathSearch));
-				for (int iCnt = 0; iCnt < 3; iCnt++) {
-				      //Execute javascript
-				         jse.executeScript("arguments[0].style.border='4px groove red'", xpathSearchStr);
-				         jse.executeScript("arguments[0].style.border=''", xpathSearchStr);
-				   }
+				jse.executeScript("arguments[0].scrollIntoView(true);",xpathSearchStr);
 				flag = xpathSearchStr.getText();			
 				}
 			catch ( org.openqa.selenium.NoSuchElementException e) {

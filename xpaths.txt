@@ -1,0 +1,27 @@
+Login de Gmail
+//input[@id='identifierId']
+//input[@type='password']
+//div[@id='forgotPassword']
+//span[text()='Next']
+
+
+
+Yahoo en español main page
+//*[text()='Correo']
+//div[@id='mega-topbar']//*[text()='Correo']
+//div[@id='Aside']//*[text()=' Lionel Messi']
+//div[@id='Aside']//*[contains(text(),'Lionel Messi')]
+//div[@id='Aside']//*[contains(@class,'searchBlue')]
+//div[@id='Aside']//*[contains(@class,'searchBlue') and contains(text(),'Ataque')]
+
+//*[@id='timeline']//*[contains(text(),'Meade')]
+//*[@id='timeline']//*[contains(text(),'AMLO')]
+
+//*[@id="header"]/div[5]/a[4]/span/span[1]
+
+//*[@id="header"]//*[@class="member-initials"]
+
+
+//div[@class="pop-over is-shown"]//a[@class="js-logout"]
+
+div/div[2]/div/div/div/ul[3]/li/a
