@@ -32,27 +32,35 @@ public class PeliculaEsoDos {
 
 	private static void testEso() {
 		String movie = "IT";
-		String [] actorNames = {"actor1","actor2","actor3","actor4","actor5"};
-		String [] characterNames = {"character1","character2","character3","character4","character5"};
+		String result = "//*[@id='main']//*[@class='findSection']//*[@class='findSectionHeader']//*[@name='tt']//..//..//*[@class='findList']//*[@class='result_text']//a[text()='It']";
+		String [] actorNames = {"Jaeden Lieberher","Jeremy Ray Taylor","Sophia Lillis","Finn Wolfhard","Chosen Jacobs","Jack Dylan Grazer","Wyatt Oleff",
+				                "Bill Skarsgård","Nicholas Hamilton","Jake Sim","Logan Thompson","Owen Teague","Jackson Robert Scott","Stephen Bogaert",
+				                "Stuart Hughes"};
+		String [] characterNames = {"Bill Denbrough","Ben Hanscom","Beverly Marsh","Richie Tozier","Mike Hanlon","Eddie Kaspbrak","Stanley Uris","Pennywise",
+								"Henry Bowers","Belch Huggins","Victor Criss","Patrick Hockstetter","Georgie Denbrough","Mr. Marsh","Officer Bowers"};
 		//manda a llamar funcion que busca pelicula
-		findMovie(movie);
-		
+		searchMovie(movie);
+		findMovie(result);
 		for(int i = 0; i < actorNames.length; i++) {
-			String xpathColumnaActor = 
-					"//table[@class='cast_list']//td[@class='itemprop']";
-			WebElement actor = 
+			try{
+				String xpathColumnaActor = "//table[@class='cast_list']//td[@class='itemprop']";
+				WebElement actor = 
 					driver.findElement(By.xpath(xpathColumnaActor+"//span[text() = '" + actorNames[i] +"']"));
-			WebElement character = 
+				WebElement character = 
 					driver.findElement(By.xpath(xpathColumnaActor+"/following-sibling::td[@class='character']//a[text()='"+ characterNames[i]+ "']"));
-			//validar que ambos existan
+			    //valida que ambos existan
+				validateExisting(actor,character);
+			}catch(org.openqa.selenium.NoSuchElementException e) {
+				System.out.println("Actor y/o personaje no existen!");
+			}
 		}		
 	}
 
 	private static void tearDown() {
-		
+		System.out.println("Fin del Script!");
 	}
 	
-	private static void findMovie(String movie) {
+	private static void searchMovie(String movie) {
 		//Espera para que cargue la pagina
 		WebDriverWait waitHomepageLoad = new WebDriverWait(driver,30);
 		waitHomepageLoad.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//body")));
@@ -66,9 +74,21 @@ public class PeliculaEsoDos {
 		String searchButtonId = "navbar-submit-button";
 		WebElement searchButton = driver.findElement(By.id(searchButtonId));
 		searchButton.click();
-		WebDriverWait waitResultsLoad = new WebDriverWait(driver,30);
-		waitResultsLoad.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//body")));
-		
 	}
 
+	private static void findMovie(String result) {
+		//Espera para que cargue la pagina de resultados
+		WebDriverWait waitResultsLoad = new WebDriverWait(driver,30);
+		waitResultsLoad.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//body")));
+		//Busca elemento deseado dentro de los resultados
+		WebElement desiredResult = driver.findElement(By.xpath(result));
+		desiredResult.click();
+		
+	}
+	
+	private static void validateExisting(WebElement actor, WebElement character) {
+		System.out.println("Actor: "+actor.getText()+"\t\tPersonaje: "+character.getText());
+		
+	}
+	
 }

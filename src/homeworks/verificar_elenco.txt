@@ -1,2 +1,9 @@
 Busque la pelicula de su preferencia en IMDB, y verifique que el elenco 
 sea el correcto.
+
+https://stackoverflow.com/questions/13448091/how-to-fetch-all-links-and-click-those-links-one-by-one-using-selenium-webdriver
+
+http://www.abodeqa.com/2013/01/29/contains-and-starts-with-function-in-xpath/
+
+
+//*[@id='titleYear']//a[text()='1984']

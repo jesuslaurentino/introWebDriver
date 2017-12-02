@@ -1,0 +1,59 @@
+Buscar pelicula
+---------------
+//*[@id="main"]//*[@class="findSection"]//*[@class="findSectionHeader"]//*[@name="tt"]//..//..//*[@class="findList"]//*[contains(text(),"It")]
+Use este para que me regresara un link clickable
+//*[@id="main"]//*[@class="findSection"]//*[@class="findSectionHeader"]//*[@name="tt"]//..//..//*[@class="findList"]//*[@class="result_text"]//a[text()="It"]
+
+//*[@id="main"]//*[@class="findSection"]//*[@class="findSectionHeader"]//*[@name="tt"]//..//..//*[@class="findList"]//*[contains(@class,"result_text")]//*[text()="It"]
+No sirvio
+//*[@id="main"]//*[@class="findSection"]//*[@class="findSectionHeader"]//*[@name="tt"]//..//..//*[@class="findList"]//*[@class="result_text" and contains(text(), "2017")]
+
+//div[@class='bubble-title' and contains(text(), 'Cover')]
+[contains(text(),"")]
+[contains(text(),'')]
+
+//*[@id="main"]//*[@class="findSection"]//*[@class="findSectionHeader"]//*[@name="tt"]//..//..//*[@class="findList"]//*[contains(text(),"2017")]//*[text()="It"]
+//*[@id="main"]//div[@class="findSection"]//h3[@class="findSectionHeader"]//a[@name="tt"]//..//..//table[@class="findList"]//td[@class="result_text"]//*[text()="It"]
+//*[@id="main"]//div[@class="findSection"]//h3[@class="findSectionHeader"]//a[@name="tt"]//..//..//table[@class="findList"]//td[contains(@class,"result_text") and contains(text(),"2017")]
+//*[@id="main"]//div[@class="findSection"]//h3[@class="findSectionHeader"]//a[@name="tt"]//..//..//table[@class="findList"]//td[contains(@class,"result_text") and (contains(text(),"2017"))]//*[text()="It"]
+
+
+Me lleva al resultado correcto, pero no es link
+//*[@id="main"]//td[text()=" (I) (2017) "]
+
+
+
+Validar elenco
+--------------
+Actor:
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Jaeden Lieberher']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Jeremy Ray Taylor']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Sophia Lillis']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Finn Wolfhard']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Chosen Jacobs']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Jack Dylan Grazer']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Wyatt Oleff']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Bill Skarsgård']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Nicholas Hamilton']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Jake Sim']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Logan Thompson']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Owen Teague']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Jackson Robert Scott']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Stephen Bogaert']
+//table[@class='cast_list']//td[@class='itemprop']//span[text() = 'Stuart Hughes']
+Personaje:
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Bill Denbrough']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Ben Hanscom']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Beverly Marsh']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Richie Tozier']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Mike Hanlon']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Eddie Kaspbrak']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Stanley Uris']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Pennywise']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Henry Bowers']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Belch Huggins']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Victor Criss']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Patrick Hockstetter']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Georgie Denbrough']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Mr. Marsh']
+//table[@class='cast_list']//td[@class='itemprop']/following-sibling::td[@class='character']//a[text()='Officer Bowers']
